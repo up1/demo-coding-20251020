@@ -1,4 +1,4 @@
-# Copilot Instructions for Spring Boot Projects
+# Copilot Instructions for Spring Boot 3.5.6 Projects
 
 This repository contains Spring Boot applications. When generating code, please follow these guidelines:
 1. **Project Structure**: Adhere to the standard Spring Boot project structure. Place controllers in the `controller` package, services in the `service` package, repositories in the `repository` package, and entities in the `model` package.
