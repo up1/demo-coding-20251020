@@ -1,0 +1,72 @@
+openapi: 3.0.3
+info:
+  title: design
+  version: 1.0.0
+  contact: {}
+servers:
+  - url: '{{xyz}}'
+paths:
+  /product/{id}:
+    get:
+      summary: Get product by id
+      description: Get product by id
+      operationId: getProductById
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: number
+                    example: 1
+                  name:
+                    type: string
+                    example: Product 01
+                  price:
+                    type: number
+                    example: 100.55
+              examples:
+                success:
+                  value:
+                    id: 1
+                    name: Product 01
+                    price: 100.55
+        '404':
+          description: product not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Product id=2 not found in system
+              examples:
+                product not found:
+                  value:
+                    message: Product id=2 not found in system
+        '500':
+          description: error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: System error
+              examples:
+                error:
+                  value:
+                    message: System error
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: ''
+tags: []
