@@ -36,5 +36,41 @@ This repository contains .NET applications. When generating code, please follow 
 
 17. **Performance**: Use minimal APIs for lightweight endpoints. Implement pagination for large datasets. Use `IAsyncEnumerable<T>` for streaming large result sets.
 
+18. **Do and Don't for C# coding standard**:
+
+**Do's:**
+
+    - Use PascalCase for class names, method names, and properties
+    - Use camelCase for local variables and method parameters
+    - Use meaningful and descriptive names for variables, methods, and classes
+    - Follow the single responsibility principle - one class, one purpose
+    - Use `var` when the type is obvious from the right side of the assignment
+    - Always use braces `{}` for if statements, even for single lines
+    - Place opening braces `{` on a new line (Allman style)
+    - Use `async`/`await` for asynchronous operations instead of `.Result` or `.Wait()`
+    - Dispose of resources properly using `using` statements or `IDisposable`
+    - Use nullable reference types and handle null cases explicitly
+    - Keep methods small and focused (ideally under 20 lines)
+    - Use readonly fields where appropriate
+    - Prefer composition over inheritance
+    - Use string interpolation `$"Hello {name}"` over string concatenation
+
+**Don'ts:**
+
+    - Don't use Hungarian notation (e.g., `strName`, `intAge`)
+    - Don't use abbreviations in names (use `Customer` not `Cust`)
+    - Don't leave empty catch blocks without proper error handling
+    - Don't use magic numbers - use named constants instead
+    - Don't make fields public - use properties with appropriate access modifiers
+    - Don't use `goto` statements
+    - Don't nest code more than 3-4 levels deep
+    - Don't use `async void` except for event handlers
+    - Don't block on async code with `.Result` or `.Wait()`
+    - Don't use `Thread.Sleep()` in async methods - use `await Task.Delay()`
+    - Don't ignore compiler warnings
+    - Don't use regions `#region` to hide poorly structured code
+    - Don't create God classes with too many responsibilities
+    - Don't forget to validate input parameters, especially in public methods
+
 By adhering to these guidelines, you will maintain consistency, security, and quality across the .NET REST API projects in this repository.
 
